@@ -1,3 +1,4 @@
-data
-processed_data
+*.csv
+*.pkl
 *_checkpoints
+*__pycache__*
