@@ -18,19 +18,19 @@ file_config = {'raw_data_path': "data",
 def read_csv(path, file):
     df = pd.read_csv(path + "/" + file,
                      parse_dates = ['AppointmentDay', 'ScheduledDay'],
-                     dtype = {'Age': np.float64})
+                     dtype = {'Age': np.float64} , encoding='latin-1')
     return df
 
 def read_kaggle_csv(config=file_config):
-    return read_csv(config['raw_data_path'], config['raw_data_csv'])
+    return read_csv(config['raw_data_path'], config['raw_data_csv'], encoding='latin-1')
     
 def read_training_csv(config=file_config):
     return read_csv(config['processed_data_path'], 
-                    config['train_csv'])
+                    config['train_csv'], encoding='latin-1')
 
 def read_testing_csv(config=file_config):
     return read_csv(config['processed_data_path'], 
-                    config['test_csv'])
+                    config['test_csv'], encoding='latin-1')
 
 def make_train_test_sets(config=file_config,
                          test_size = 20000,
